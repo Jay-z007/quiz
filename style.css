@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+
+:root {
+    --navy: #0b1f3a;
+    --navy-mid: #14345c;
+    --blue: #1e4d8c;
+    --blue-soft: #e8f0fa;
+    --white: #ffffff;
+    --gold: #c9a227;
+    --gold-light: #e4c65a;
+    --gold-deep: #9a7b1a;
+    --text: #1a2a40;
+    --muted: #5a6b82;
+    --shadow: 0 18px 40px rgba(11, 31, 58, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Source Sans 3", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(201, 162, 39, 0.18), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 100% 0%, rgba(30, 77, 140, 0.35), transparent 50%),
+        linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 45%, #0f2a4d 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.25rem 4rem;
+}
+
+h1 {
+    margin: 0 0 2rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.85rem;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 3px;
+    margin: 0.75rem auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    border-radius: 2px;
+}
+
+#quiz {
+    width: min(640px, 100%);
+    background: var(--white);
+    border: 1px solid rgba(201, 162, 39, 0.35);
+    border-top: 4px solid var(--gold);
+    box-shadow: var(--shadow);
+    padding: 2rem 2rem 1.75rem;
+}
+
+#question {
+    margin: 0 0 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.45rem, 3vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--navy);
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#options button {
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0.95rem 1.15rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--navy);
+    background: var(--blue-soft);
+    border: 1.5px solid transparent;
+    border-left: 3px solid var(--blue);
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+#options button:hover {
+    background: var(--white);
+    border-color: var(--gold);
+    border-left-color: var(--gold);
+    color: var(--navy);
+    box-shadow: 0 6px 18px rgba(11, 31, 58, 0.1);
+    transform: translateX(4px);
+}
+
+#options button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+#options button:active {
+    transform: translateX(2px) scale(0.995);
+}
+
+#result {
+    width: min(640px, 100%);
+    margin: 1.5rem 0 0;
+    min-height: 1.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--gold-light);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 2rem 1rem 3rem;
+    }
+
+    #quiz {
+        padding: 1.5rem 1.25rem 1.35rem;
+    }
+
+    #options button {
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+    }
+}
